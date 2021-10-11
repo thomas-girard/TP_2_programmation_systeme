@@ -35,9 +35,12 @@ public:
         for (int i=0; i < nb_messages_; i++) {
 
 
-            Random generator{ 50 };
+            Random generator{ 500 };
             int alea = generator();
+
             box_.put(alea);
+
+
             using milliseconds = std::chrono::duration< int, std::milli >;
             //std::cout << "wait" << std::endl;
             //{ osyncstream( std::cout ) << " wait " << alea; }

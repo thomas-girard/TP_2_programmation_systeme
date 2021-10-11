@@ -21,7 +21,10 @@
 //change
 #include "../Random.hpp"
 #include <chrono>
+#include <mutex>
 //end_change
+
+
 
 /*
  * Test avec 1 producteur et 1 consommateur
@@ -36,8 +39,8 @@ int main() {
     Random generator{ 50 };
     int alea = generator();
     MessageBox boite_aux_lettres;
-    Producer producteur(1, boite_aux_lettres, generator, 20 );
-    Consumer consommateur(1, boite_aux_lettres, generator, 20 );
+    Producer producteur(1, boite_aux_lettres, generator, 20);
+    Consumer consommateur(1, boite_aux_lettres, generator, 20);
 
     //producteur.operator()();
     //pthread_cond_init( , NULL );
