@@ -33,12 +33,12 @@ public:
             // std::this_thread::sleep_for (std::chrono::seconds(1));
             basic_put( message );
             nb_data+=1;
-            std::cout << "je remplit la boite : " << nb_data << std::endl;
+            //std::cout << "je remplit la boite : " << nb_data << std::endl;
             boite_vide.notify_all();
         }
 
         else {
-            std::cout << "wait notif de boite_pleine" << std::endl;
+            //std::cout << "wait notif de boite_pleine" << std::endl;
             boite_pleine.wait(my_lock);
         }
     }
@@ -47,12 +47,12 @@ public:
         // TODO : ajouter les mecanismes de synchronisation
         std::unique_lock<std::mutex> my_lock(my_mutex);
         while (nb_data <= 0) {
-            std::cout << "wait notif de boite_vide" << std::endl;
+            //std::cout << "wait notif de boite_vide" << std::endl;
             boite_vide.wait(my_lock);
         }
         int message{ basic_get() };
         nb_data-=1;
-        std::cout << "je vide la boite : " << nb_data << std::endl;
+        //std::cout << "je vide la boite : " << nb_data << std::endl;
         boite_pleine.notify_all();
 
         return message;

@@ -28,7 +28,8 @@ public:
         // TODO
         for (int i=0; i < nb_messages_; i++) {
             int entier = box_.get();
-            { osyncstream( std::cout ) << " entier  \n" << entier; }
+            std::cout<< "Consumer : i =  "<< i << std::endl;
+            { osyncstream( std::cout ) << " entier récupéré  : " << entier << "\n"; }
 
         }
     }

@@ -38,6 +38,8 @@ public:
             Random generator{ 500 };
             int alea = generator();
 
+            std::cout<< "Producer : i =  "<< i<< " entier envoyé :  " << alea<< std::endl;
+
             box_.put(alea);
 
 
